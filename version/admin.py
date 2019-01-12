@@ -28,10 +28,20 @@ class PaperlessVersionAdmin(admin.ModelAdmin):
 
     # ordering设置默认排序字段，负号表示降序排序
     ordering = ('-type',
-                '-datetime_modified',)
+                '-datetime_created',)
 
     # list_editable = [
     #                  'version']
+    search_fields = (u'name',)
+
+    def get_search_results(self, request, queryset, search_term):
+        queryset, use_distinct = super(PaperlessVersionAdmin, self).get_search_results(request, queryset, search_term)
+        try:
+            search_term_as_int = int(search_term)
+            queryset = (self.model.objects.filter(name=search_term_as_int))
+        except:
+            pass
+        return queryset, use_distinct
 
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
@@ -39,7 +49,7 @@ class PaperlessVersionAdmin(admin.ModelAdmin):
             f_md5 = hashlib.md5(fp.read()).hexdigest()
             obj.md5 = f_md5
         create_time = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
-        path1 = '192.168.0.118:8000' + '/files/' + str(obj.file_path)
+        path1 = '192.168.0.118:8999' + '/files/' + str(obj.file_path)
         path2 = 'files/img/' + create_time + '.png'
         img = qrcode.make(path1)
         with open(path2, 'wb') as fp:
