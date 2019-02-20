@@ -29,6 +29,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'version',
+
 ]
 
 MIDDLEWARE = [
@@ -66,6 +68,21 @@ TEMPLATES = [
         },
     },
 ]
+
+DATETIME_FORMAT = 'Y-m-d H:i:s'
+DATE_FORMAT = 'Y-m-d'
+
+SUIT_CONFIG = {
+    'ADMIN_NAME': '版本管理',
+    'MENU': (
+        {
+            'label': '文件名',
+            'app': '文件名',
+            'models': ('PaperlessVersion',
+                       'TestProcess',)
+        },
+    )
+}
 
 WSGI_APPLICATION = 'PaperlessVersion.wsgi.application'
 

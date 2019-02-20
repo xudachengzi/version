@@ -78,6 +78,9 @@ class TestProcess(models.Model):
         (6, '智慧人大测试流程'),
     }
 
+    type = models.IntegerField(verbose_name="版本类型",
+                               choices=TYPE_CHOICE,
+                               default=1)
     name = models.CharField(verbose_name='版本',
                             max_length=100,
                             blank=True, null=True)
@@ -89,9 +92,10 @@ class TestProcess(models.Model):
     file = models.FileField(verbose_name='流程文件',
                             upload_to='test_process')
 
+
     class Meta:
-        verbose_name = "无纸化版本"
-        verbose_name_plural = "无纸化版本"
+        verbose_name = "测试流程"
+        verbose_name_plural = "测试流程"
 
     def __str__(self):
         return self.name

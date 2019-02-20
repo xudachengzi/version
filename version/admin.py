@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from PaperlessVersion.settings import BASE_DIR
-from .models import PaperlessVersion
+from .models import PaperlessVersion, TestProcess
 import hashlib
 import qrcode
 import time
@@ -56,3 +56,13 @@ class PaperlessVersionAdmin(admin.ModelAdmin):
             img.save(fp)
         obj.qr_code = '/img/' + create_time + '.png'
         obj.save()
+
+
+@admin.register(TestProcess)
+class TestProcessAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'version_code',
+        'content',
+        'file',
+    )
