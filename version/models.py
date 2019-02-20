@@ -17,6 +17,8 @@ class PaperlessVersion(models.Model):
         (7, "标准宁波市场监管局版"),
         (8, "履职宁波人大版"),
         (9, "履职宁波政协版"),
+        (10, "舟山市委"),
+        (11, "智慧人大"),
     }
     name = models.CharField(verbose_name="文件名",
                             max_length=100,
