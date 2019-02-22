@@ -19,10 +19,18 @@ from django.contrib import admin
 from django.urls import path, re_path
 from django.views.static import serve
 
+import xadmin
+
+xadmin.autodiscover()
+
+from xadmin.plugins import xversion
+
+xversion.register_models()
+
 # from PaperlessVersion.settings import MEDIA_ROOT
 
 urlpatterns = [
-                  path('admin/', admin.site.urls),
-                  # re_path(r'^files/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT, "show_indexes": True}),
+                  # path('admin/', admin.site.urls),
+                  re_path(r'^xadmin/', xadmin.site.urls),
               ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS) \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
