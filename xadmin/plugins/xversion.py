@@ -599,7 +599,7 @@ class ReversionAdmin(object):
     list_filter = ('date_created', 'user')
     inlines = [VersionInline]
 
-site.register(Revision, ReversionAdmin)
+# site.register(Revision, ReversionAdmin)
 
 site.register_modelview(
     r'^recover/$', RecoverListView, name='%s_%s_recoverlist')

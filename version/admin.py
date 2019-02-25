@@ -6,8 +6,10 @@ import hashlib
 import qrcode
 import time
 
-
 # admin.site.register(PaperlessVersion)
+
+admin.site.site_header = '版本管理登录'
+admin.site.site_title = '版本管理'
 
 
 @admin.register(PaperlessVersion)

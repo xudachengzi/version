@@ -26,7 +26,7 @@ class PaperlessVersion(models.Model):
     type = models.IntegerField(verbose_name="版本类型",
                                choices=TYPE_CHOICE,
                                default=1)
-    file_path = models.FileField(verbose_name="上传文件",
+    file_path = models.FileField(verbose_name="文件",
                                  upload_to='media',
                                  )
     md5 = models.CharField(verbose_name="文件MD5",
