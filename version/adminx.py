@@ -13,20 +13,24 @@ class PaperlessVersionAdmin(object):
         'type',
         'version',
         'content',
-        'file_path',
         'md5',
-        'qr_code',
         'datetime_created',
-        'datetime_modified']
-    search_fields = ['name', ]
+        'datetime_modified']  # 显示字段
+    search_fields = ['name', ]  # 搜索框
     list_editable = ['name',
-                     'type',
-                     'file_path', ]
-    list_filter = ['name',
-                   'type',
-                   'file_path',
-                   'content',
-                   ]
+                     'version',
+                     'content', ]  # 可编辑字段
+    list_filter = ['type',
+                   ]  # 过滤器
+    date_hierarchy = 'created_time'
 
+    ordering = ('-name', '-version')  # 以某字段排序
+    list_per_page = 10  # 分页
+    menu_style = "accordion"  # 使左侧菜单栏为伸缩样式
+    site_title = "版本管理"  # 设置标题
+    site_footer = "浙江智加"  # 设置底部文字
+    # enable_themes = True  # 添加主题选择功能
+    # use_bootswatch = True  # 添加多个主题到选择中
+    # show_bookmarks = False  # 关闭标签栏
 
 xadmin.site.register(PaperlessVersion, PaperlessVersionAdmin)
