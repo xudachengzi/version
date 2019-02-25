@@ -5,7 +5,6 @@ from .models import PaperlessVersion, TestProcess
 import hashlib
 import qrcode
 import time
-import image
 
 
 # admin.site.register(PaperlessVersion)
