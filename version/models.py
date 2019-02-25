@@ -8,17 +8,19 @@ class PaperlessVersion(models.Model):
     无纸化版本
     """
     TYPE_CHOICE = {
-        (1, "人大宁波市版"),
-        (2, "人大宁波辖区版"),
-        (3, "政协宁波版"),
-        (4, "人大温州平阳版"),
-        (5, "政协舟山版"),
-        (6, "标准宁波经信委版"),
-        (7, "标准宁波市场监管局版"),
-        (8, "履职宁波人大版"),
-        (9, "履职宁波政协版"),
-        (10, "舟山市委"),
-        (11, "智慧人大"),
+        (1, "智慧人大版"),
+        (2, "人大宁波市辖区版"),
+        (3, "人大温州平阳版"),
+        (4, "人大宁波市版"),
+        (5, "履职宁波人大版"),
+        (6, "履职宁波政协版"),
+        (7, "政协宁波版"),
+        (8, "政协舟山版"),
+        (9, "市委舟山版"),
+        (10, "标准宁波经信委版"),
+        (11, "标准宁波市场监管局版"),
+
+
     }
     name = models.CharField(verbose_name="文件名",
                             max_length=100,
@@ -26,7 +28,7 @@ class PaperlessVersion(models.Model):
     type = models.IntegerField(verbose_name="版本类型",
                                choices=TYPE_CHOICE,
                                default=1)
-    file_path = models.FileField(verbose_name="上传文件",
+    file_path = models.FileField(verbose_name="文件",
                                  upload_to='media',
                                  )
     md5 = models.CharField(verbose_name="文件MD5",

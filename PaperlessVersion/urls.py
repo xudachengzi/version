@@ -30,7 +30,7 @@ xversion.register_models()
 # from PaperlessVersion.settings import MEDIA_ROOT
 
 urlpatterns = [
-                  # path('admin/', admin.site.urls),
+                  path('admin/', admin.site.urls),
                   re_path(r'^xadmin/', xadmin.site.urls),
               ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS) \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

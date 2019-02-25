@@ -1,3 +1,8 @@
+import hashlib
+from datetime import time
+
+import qrcode
+
 import xadmin
 from .models import PaperlessVersion
 
@@ -6,11 +11,11 @@ class PaperlessVersionAdmin(object):
     list_display = [
         'name',
         'type',
+        'version',
+        'content',
         'file_path',
         'md5',
-        'content',
         'qr_code',
-        'version',
         'datetime_created',
         'datetime_modified']
     search_fields = ['name', ]
