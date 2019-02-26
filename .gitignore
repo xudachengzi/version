@@ -106,4 +106,10 @@ venv.bak/
 *.png
 *.apk
 *.xlsx
+<<<<<<< HEAD
 .idea
+=======
+*.docs
+.idea
+version/migrations/0002_auto_20190226_0901.py
+>>>>>>> develop

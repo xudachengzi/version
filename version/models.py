@@ -19,6 +19,8 @@ class PaperlessVersion(models.Model):
         (9, "履职宁波政协版"),
         (10, "舟山市委"),
         (11, "智慧人大"),
+        (12, "政协宁波市辖区版"),
+
     }
     name = models.CharField(verbose_name="文件名",
                             max_length=100,
@@ -92,11 +94,9 @@ class TestProcess(models.Model):
     file = models.FileField(verbose_name='流程文件',
                             upload_to='test_process')
 
-
     class Meta:
         verbose_name = "测试流程"
         verbose_name_plural = "测试流程"
 
     def __str__(self):
         return self.name
-
