@@ -24,7 +24,7 @@ class PaperlessVersionAdmin(object):
                    ]  # 过滤器
     date_hierarchy = 'created_time'
 
-    ordering = ('-name', '-version')  # 以某字段排序
+    ordering = ('-datetime_created', '-version')  # 以某字段排序
     list_per_page = 10  # 分页
     menu_style = "accordion"  # 使左侧菜单栏为伸缩样式
     site_title = "版本管理"  # 设置标题
