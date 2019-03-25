@@ -50,7 +50,7 @@ class PaperlessVersionAdmin(admin.ModelAdmin):
             f_md5 = hashlib.md5(fp.read()).hexdigest()
             obj.md5 = f_md5
         create_time = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
-        path1 = '192.168.0.138:8999' + '/files/' + str(obj.file_path)
+        path1 = 'http://appdownload.zhijiasoft.com' + '/files/' + str(obj.file_path)
         path2 = 'files/img/' + create_time + '.png'
         img = qrcode.make(path1)
         with open(path2, 'wb') as fp:
