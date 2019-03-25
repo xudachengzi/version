@@ -90,6 +90,7 @@ SUIT_CONFIG = {
 }
 
 WSGI_APPLICATION = 'PaperlessVersion.wsgi.application'
+ASGI_APPLICATION = 'PaperlessVersion.routing.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
